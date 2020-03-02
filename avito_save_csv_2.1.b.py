@@ -51,14 +51,18 @@ def get_page_data(html):
 		write_csv(data)
 
 def main():
-	url = 'https://www.avito.ru/kazan?q=%D0%BC%D1%91%D0%B4'
-	base_url = 'https://www.avito.ru/kazan?q=мёд&'  # исправить строку
+	url = 'https://www.avito.ru'
+	base_url = 'https://www.avito.ru/kazan?q='  # решить с городами может быть словарь? можно организовать меню выбора с цифрами
 	page_part = 'p='
-	#quest = input('Введите поисковый запрос:	')
+	
+	quest = input('Введите поисковый запрос(по Казани):	')
+	
+	
+
 	total_pages = get_total_pages(get_html(url))
 	
 	for i in range(1, total_pages):
-		url_gen = base_url + page_part + str(i) # | переменная генерирующая различные url в цикле, для дальнейшей с ними работой
+		url_gen = base_url + quest + '&' + page_part + str(i) # | переменная генерирующая различные url в цикле, для дальнейшей с ними работой
 		html = get_html(url_gen)                # \__________В ЭТОМ БЛОКЕ можно добавить возможность вводить вручную через функцию 'input()' 
 		get_page_data(html)                     # /
 		
