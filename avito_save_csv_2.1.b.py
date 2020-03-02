@@ -52,9 +52,9 @@ def get_page_data(html):
 
 def main():
 	url = 'https://www.avito.ru/kazan?q=%D0%BC%D1%91%D0%B4'
-	base_url = 'https://www.avito.ru/kazan?q=мёд&'
+	base_url = 'https://www.avito.ru/kazan?q=мёд&'  # исправить строку
 	page_part = 'p='
-	
+	#quest = input('Введите поисковый запрос:	')
 	total_pages = get_total_pages(get_html(url))
 	
 	for i in range(1, total_pages):
