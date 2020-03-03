@@ -9,8 +9,14 @@ def get_html(url):                               #функция с именем
 	return r.text                                # и ф-ция возыращает нам переменную 'r' c методом 'text'
 
 def get_total_pages(html):
-	#total_pages = 'https://www.avito.ru/kazan?q=%D0%BC%D1%91%D0%B4&p=5' #функция генерирующая количество (общее) для парсинга страницы
-	total_pages = 6
+	soup = BeautifulSoup(html, 'lxml')           #функция генерирующая количество (общее) для парсинга страницы
+
+	# total = soup.find('div', class_='js-pages pagination-pagination-2j5na')
+	# print(total)
+	# total = list(total)
+	# total_pages = total[-10]
+	# print(total)
+	total_pages = 100
 	return int(total_pages)
 
 def write_csv(data):
