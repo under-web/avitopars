@@ -11,6 +11,11 @@ def get_page_data(html):
     for i in data:
         try:
             title = i.find('a', class_='snippet-link').get("title").strip()
+            if 'в Бугульме' in title:
+                pass
+            else:
+                break
+	
         except:
             title = ''
 
