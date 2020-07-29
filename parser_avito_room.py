@@ -18,6 +18,7 @@ def write_csv(dany):
 
 def get_page_data(html):
     l = 0
+
     soup = BeautifulSoup(html, 'lxml')
     data = soup.find('div', class_='snippet-list js-catalog_serp')
     for i in data:
@@ -31,7 +32,9 @@ def get_page_data(html):
         except:
             title = ''
         try:
+
             price = i.find('span', class_='snippet-price').text.strip()
+
         except:
             price = ''
         try:
@@ -61,6 +64,7 @@ def get_page_data(html):
             write_csv(dany)
     print('Всего обьявлений', l)
 
+    input()
 
 
 
